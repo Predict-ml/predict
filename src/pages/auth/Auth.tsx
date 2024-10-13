@@ -63,7 +63,7 @@ export const Auth = () => {
 				statusAthlete: user.status || false,
 			})
 
-			toast.success('Wcm')
+			toast.success('accueillir')
 
 			if (user.status) {
 				toast('You already submitted the form today', {

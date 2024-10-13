@@ -1,4 +1,3 @@
-import SoccerBall from '@/assets/icons/SoccerBall'
 import {
 	Activity,
 	FolderKanban,
@@ -52,17 +51,9 @@ export const AppAside = () => {
 						)}
 						{renderIfRouteIsAvailable(
 							<CustomToolTip
-								to="/soccer"
-								icon={<SoccerBall className="size-5" />}
-								label="Soccer"
-							/>,
-							'soccer',
-						)}
-						{renderIfRouteIsAvailable(
-							<CustomToolTip
 								to="/questions"
 								icon={<MessageCircleQuestion className="size-5" />}
-								label="Soccer Questions"
+								label="Daily Questions"
 							/>,
 							'volleyballAthlete',
 						)}

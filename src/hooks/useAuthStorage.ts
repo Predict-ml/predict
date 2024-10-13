@@ -47,7 +47,6 @@ export const useAuthStorage = () => {
 
 	const roleRoutes: { [key: string]: string } = {
 		run: '/run',
-		soccer: '/soccer',
 		volleyball: '/volleyball',
 		admin: '/admin',
 		volleyballAthlete: '/questions',

@@ -58,15 +58,10 @@ export const SheetAppMobile = () => {
 						</NavLink>,
 						'volleyball',
 					)}
-					{renderIfRouteIsAvailable(
-						<NavLink onClick={handleChangeOpen} to="/soccer">
-							Soccer
-						</NavLink>,
-						'soccer',
-					)}
+
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/questions">
-							soccer questions
+							Daily Questions
 						</NavLink>,
 						'volleyballAthlete',
 					)}
