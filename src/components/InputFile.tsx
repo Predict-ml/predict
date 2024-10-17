@@ -38,14 +38,16 @@ const Input = ({ dropzone }: InputProps) => {
 						)}
 					/>
 					{isDragActive ? (
-						<p className="font-bold text-lg text-blue-400">Drop to add</p>
+						<p className="font-bold text-lg text-blue-400">
+							Déposez pour ajouter
+						</p>
 					) : (
 						<>
 							<p className="mb-2 text-lg text-gray-500">
-								<span className="font-bold">Click to upload</span> or drag and
-								drop here
+								<span className="font-bold">Cliquez pour télécharger</span> ou
+								glissez-déposez ici
 							</p>
-							<p className="text-gray-400 text-sm">Only JPG or MP4</p>
+							<p className="text-gray-400 text-sm">Seulement MP4</p>
 						</>
 					)}
 				</div>

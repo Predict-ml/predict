@@ -11,7 +11,10 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toast } from 'sonner'
 
-const PREDICTOPTIONS = ['asymmetry', 'speed', 'distance', 'time']
+const PREDICTOPTIONS = [
+	'walk',
+	//  'speed', 'distance', 'time'
+]
 
 export const Run = () => {
 	useAppTitle({ title: 'Corrida' })
