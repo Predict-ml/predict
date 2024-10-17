@@ -29,16 +29,16 @@ export const login = async (data: {
 			return response.data as LoginSuccess
 		}
 
-		throw new Error('Login failed')
+		throw new Error('Échec de la connexion')
 	} catch (error) {
 		if (axios.isAxiosError(error) && error.response) {
 			return {
-				message: error.response.data.message || 'Unknown error occurred',
+				message: error.response.data.message || 'Erreur inconnue survenue',
 			} as LoginError
 		}
 
 		return {
-			message: 'Network or server error',
+			message: 'Erreur de réseau ou du serveur',
 		} as LoginError
 	}
 }

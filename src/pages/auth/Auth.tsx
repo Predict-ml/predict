@@ -20,8 +20,8 @@ import { useAuthStorage } from '@/hooks/useAuthStorage'
 import { login } from '@/services/login'
 
 const loginSchema = z.object({
-	email: z.string().email('E-mail inválido').min(4, 'E-mail inválido '),
-	password: z.string().min(1, 'campo obrigatório'),
+	email: z.string().email('E-mail invalide').min(4, 'E-mail invalide'),
+	password: z.string().min(1, 'champ obligatoire'),
 })
 
 type LoginSchema = z.infer<typeof loginSchema>
@@ -52,8 +52,6 @@ export const Auth = () => {
 
 			const { token, user } = response
 
-			console.log(user.status)
-
 			signin({
 				jwt: token,
 				email: user.email,
@@ -63,34 +61,34 @@ export const Auth = () => {
 				statusAthlete: user.status || false,
 			})
 
-			toast.success('accueillir')
+			toast.success('Bienvenue')
 
 			if (user.status) {
-				toast('You already submitted the form today', {
+				toast("Vous avez déjà soumis le formulaire aujourd'hui", {
 					duration: 10000,
 				})
 			}
 		} catch (_error) {
-			toast.error('Error on login')
+			toast.error('Erreur lors de la connexion')
 		}
 	}
 
 	return (
 		<>
-			<Helmet title="Login" />
+			<Helmet title="Connexion" />
 
 			<Card className="mx-auto max-w-sm">
 				<CardHeader>
-					<CardTitle className="text-2xl">Login</CardTitle>
+					<CardTitle className="text-2xl">Connexion</CardTitle>
 					<CardDescription>
-						Enter your email below to login to your account
+						Entrez votre e-mail ci-dessous pour vous connecter à votre compte
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className="grid gap-4">
 							<div className="grid gap-2">
-								<Label htmlFor="email">Email</Label>
+								<Label htmlFor="email">E-mail</Label>
 								<Input
 									id="email"
 									type="email"
@@ -104,7 +102,7 @@ export const Auth = () => {
 								)}
 							</div>
 							<div className="relative space-y-2	">
-								<Label htmlFor="password">Senha</Label>
+								<Label htmlFor="password">Mot de passe</Label>
 								<Input
 									id="password"
 									type={passwordVisibility ? 'text' : 'password'}
@@ -127,13 +125,15 @@ export const Auth = () => {
 									>
 										{passwordVisibility ? <EyeOff /> : <Eye />}
 										<span className="sr-only">
-											{passwordVisibility ? 'Ocultar senha' : 'Mostrar senha'}
+											{passwordVisibility
+												? 'Masquer le mot de passe'
+												: 'Afficher le mot de passe'}
 										</span>
 									</Button>
 								</div>
 							</div>
 							<Button type="submit" className="w-full" disabled={isSubmitting}>
-								Login
+								Connexion
 							</Button>
 						</div>
 					</form>
