@@ -20,7 +20,7 @@ export function ModalEditUser() {
 				w-full
 				"
 				>
-					Settings
+					Paramètres
 				</button>
 			</DialogTrigger>
 			<DialogContent aria-describedby={undefined} className="rounded-lg pt-10 ">

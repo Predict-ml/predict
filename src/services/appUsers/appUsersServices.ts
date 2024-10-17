@@ -57,10 +57,11 @@ const appUsersService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -71,10 +72,11 @@ const appUsersService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -92,10 +94,11 @@ const appUsersService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -107,14 +110,15 @@ const appUsersService = {
 					success: true,
 				} as DeleteUserSuccess
 			}
-			return { message: 'Unknown error occurred' } as ServiceError
+			return { message: "Erreur inconnue s'est produite" } as ServiceError
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -138,10 +142,11 @@ const appUsersService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -153,14 +158,15 @@ const appUsersService = {
 				return { success: true }
 			}
 
-			return { message: 'Unknown error occurred' } as ServiceError
+			return { message: "Erreur inconnue s'est produite" } as ServiceError
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -177,12 +183,12 @@ const appUsersService = {
 				return { success: true }
 			}
 
-			throw new Error('Error trying to update user')
+			throw new Error("Erreur lors de la mise à jour de l'utilisateur")
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return error.response.data
 			}
-			throw new Error('Error trying to update user')
+			throw new Error("Erreur lors de la mise à jour de l'utilisateur")
 		}
 	},
 
@@ -197,16 +203,18 @@ const appUsersService = {
 				return { success: true }
 			}
 
-			throw new Error('Error trying to update password')
+			throw new Error('Erreur lors de la mise à jour du mot de passe')
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				if (error.response.status === 400) {
 					return {
-						message: error.response.data.error || 'old password is incorrect',
+						message:
+							error.response.data.error ||
+							"L'ancien mot de passe est incorrect",
 					}
 				}
 			}
-			throw new Error('Error trying to update password')
+			throw new Error('Erreur lors de la mise à jour du mot de passe')
 		}
 	},
 }

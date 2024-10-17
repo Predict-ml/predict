@@ -81,10 +81,10 @@ export default function CreateAccountModal() {
 			}
 
 			dispatch(addUser(response))
-			toast.success('Usuário criado com sucesso')
+			toast.success('Utilisateur créé avec succès')
 		} catch (error) {
 			console.error(error)
-			toast.error('Erro ao criar usuário')
+			toast.error("Erreur lors de la création de l'utilisateur")
 		}
 	}
 
@@ -136,8 +136,8 @@ export default function CreateAccountModal() {
 					{passwordVisibility[passwordField] ? <EyeOff /> : <Eye />}
 					<span className="sr-only">
 						{passwordVisibility[passwordField]
-							? 'Ocultar senha'
-							: 'Mostrar senha'}
+							? 'Masquer le mot de passe'
+							: 'Afficher le mot de passe'}
 					</span>
 				</Button>
 			</div>
@@ -147,14 +147,16 @@ export default function CreateAccountModal() {
 	return (
 		<Dialog onOpenChange={setIsOpen} open={isOpen}>
 			<DialogTrigger asChild>
-				<Button className="w-full sm:max-w-[16rem]">Criar Usuário</Button>
+				<Button className="w-full sm:max-w-[16rem]">
+					Créer un Utilisateur
+				</Button>
 			</DialogTrigger>
 			<DialogContent
 				aria-describedby={undefined}
 				className="flex flex-col sm:min-h-fit overflow-y-auto h-full"
 			>
 				<DialogHeader>
-					<DialogTitle>Criar Conta</DialogTitle>
+					<DialogTitle>Créer un Compte</DialogTitle>
 				</DialogHeader>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
@@ -162,8 +164,13 @@ export default function CreateAccountModal() {
 				>
 					<div>
 						<div className="space-y-2">
-							<Label htmlFor="name">Nome</Label>
-							<Input id="name" type="text" {...register('name')} />
+							<Label htmlFor="name">Nom</Label>
+							<Input
+								id="name"
+								type="text"
+								placeholder="Entrez votre nom"
+								{...register('name')}
+							/>
 							{errors.name && (
 								<span className="text-red-500">{errors.name.message}</span>
 							)}
@@ -171,16 +178,25 @@ export default function CreateAccountModal() {
 
 						<div className="space-y-2">
 							<Label htmlFor="email">e-mail</Label>
-							<Input id="email" type="email" {...register('email')} />
+							<Input
+								id="email"
+								type="email"
+								placeholder="Entrez votre e-mail"
+								{...register('email')}
+							/>
 							{errors.email && (
 								<span className="text-red-500">{errors.email?.message}</span>
 							)}
 						</div>
 
-						{renderPasswordField('password', 'Senha', 'password1')}
-						{renderPasswordField('retypePassword', 'Repita senha', 'password2')}
+						{renderPasswordField('password', 'Mot de passe', 'password1')}
+						{renderPasswordField(
+							'retypePassword',
+							'Répétez le mot de passe',
+							'password2',
+						)}
 
-						<div className="flex flex-col gap-4 mt-4  ">
+						<div className="flex flex-col gap-4 mt-4">
 							{fields.map((field, index) => (
 								<div className="flex flex-col gap-1" key={field.id}>
 									<div className="flex items-center justify-between my-">
@@ -190,7 +206,7 @@ export default function CreateAccountModal() {
 											render={({ field: { onChange, value } }) => (
 												<Select value={value} onValueChange={onChange}>
 													<SelectTrigger className="h-10 w-[180px] capitalize">
-														<SelectValue placeholder="Roles" />
+														<SelectValue placeholder="Rôles" />
 													</SelectTrigger>
 													<SelectContent>
 														{ROLES.map((item) => (
@@ -234,7 +250,7 @@ export default function CreateAccountModal() {
 							 "
 								size="icon"
 							>
-								<span className="mr-2">Adicionar Cargo</span>
+								<span className="mr-2">Ajouter un Rôle</span>
 								<Plus size={24} />
 							</Button>
 							{errors.roles && (
@@ -254,7 +270,7 @@ export default function CreateAccountModal() {
 						type="submit"
 					>
 						{loading && <SpinnerLoading />}
-						Finalizar Cadastro
+						Finaliser l'Inscription
 					</Button>
 				</form>
 			</DialogContent>

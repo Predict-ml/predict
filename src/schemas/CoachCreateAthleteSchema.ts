@@ -1,20 +1,22 @@
 import { z } from 'zod'
 
-// Base Athlete Schema
+// Schéma de base pour les athlètes
 const baseAthleteSchema = z.object({
-	name: z.string().min(1, 'Nome é obrigatório'),
-	email: z.string().email('Formato de e-mail inválido'),
+	name: z.string().min(1, 'Le nom est obligatoire'),
+	email: z.string().email('Format de courriel invalide'),
 })
 
 type BaseAthleteSchema = z.infer<typeof baseAthleteSchema>
 
 const coachRegisterAthleteSchema = baseAthleteSchema
 	.extend({
-		password: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres'),
-		retypePassword: z.string().min(6, 'Senhas devem coincidir'),
+		password: z
+			.string()
+			.min(6, 'Le mot de passe doit comporter au moins 6 caractères'),
+		retypePassword: z.string().min(6, 'Les mots de passe doivent correspondre'),
 	})
 	.refine((data) => data.password === data.retypePassword, {
-		message: 'As senhas não coincidem',
+		message: 'Les mots de passe ne correspondent pas',
 		path: ['retypePassword'],
 	})
 

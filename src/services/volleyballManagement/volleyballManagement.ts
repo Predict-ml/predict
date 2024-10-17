@@ -49,10 +49,11 @@ const athletesService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -77,10 +78,11 @@ const athletesService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -91,10 +93,11 @@ const athletesService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -111,10 +114,11 @@ const athletesService = {
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -126,14 +130,15 @@ const athletesService = {
 				return { success: true }
 			}
 
-			return { message: 'Unknown error occurred' } as ServiceError
+			return { message: "Une erreur inconnue s'est produite" } as ServiceError
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 
@@ -145,14 +150,15 @@ const athletesService = {
 				return { success: true }
 			}
 
-			return { message: 'Unknown error occurred' } as ServiceError
+			throw new Error("Une erreur inconnue s'est produite")
 		} catch (error) {
 			if (axios.isAxiosError(error) && error.response) {
 				return {
-					message: error.response.data.message || 'Unknown error occurred',
+					message:
+						error.response.data.message || "Une erreur inconnue s'est produite",
 				} as ServiceError
 			}
-			return { message: 'Network or server error' } as ServiceError
+			return { message: 'Erreur réseau ou serveur' } as ServiceError
 		}
 	},
 }

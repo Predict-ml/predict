@@ -28,16 +28,17 @@ export const AthleteFormSubmitService = async (
 			} as SubmitAthleteFormSuccess
 		}
 
-		throw new Error('Submit failed')
+		throw new Error('Échec de la soumission')
 	} catch (error) {
 		if (axios.isAxiosError(error) && error.response) {
 			return {
-				message: error.response.data.message || 'Unknown error occurred',
+				message:
+					error.response.data.message || 'Une erreur inconnue est survenue',
 			} as SubmitAthleteFormError
 		}
 
 		return {
-			message: 'Network or server error',
+			message: 'Erreur de réseau ou du serveur',
 		} as SubmitAthleteFormError
 	}
 }

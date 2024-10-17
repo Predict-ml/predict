@@ -16,8 +16,10 @@ import { z } from 'zod'
 import { Button } from '../ui/button/button'
 
 const passwordSchema = z.object({
-	currentPassword: z.string().min(1, 'Current password is required'),
-	newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+	currentPassword: z.string().min(1, 'Le mot de passe actuel est requis'),
+	newPassword: z
+		.string()
+		.min(6, 'Le nouveau mot de passe doit comporter au moins 6 caractères'),
 })
 
 type PasswordSchema = z.infer<typeof passwordSchema>
@@ -46,52 +48,56 @@ export const TabPassword = ({
 			}
 
 			if (response.success) {
-				toast.success('Password updated successfully')
+				toast.success('Mot de passe mis à jour avec succès')
 				handleCloseModal()
 				return
 			}
 		} catch (error) {
 			console.error(error)
-			toast.error('Error updating the password')
+			toast.error('Erreur lors de la mise à jour du mot de passe')
 		}
 	}
 
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>Password</CardTitle>
+				<CardTitle>Mot de passe</CardTitle>
 				<CardDescription>
-					Change your password here. After saving, you'll be logged out.
+					Changez votre mot de passe ici. Après avoir enregistré, vous serez
+					déconnecté.
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-2">
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
 					<div className="space-y-1">
-						<Label htmlFor="currentPassword">Current password</Label>
+						<Label htmlFor="currentPassword">Mot de passe actuel</Label>
 						<Input
 							id="currentPassword"
 							type="password"
 							{...register('currentPassword')}
 						/>
 						{errors.currentPassword && (
-							<p>{errors.currentPassword.message?.toString()}</p>
+							<p className="text-red-500">
+								{errors.currentPassword.message?.toString()}
+							</p>
 						)}
 					</div>
 					<div className="space-y-1">
-						<Label htmlFor="newPassword">New password</Label>
+						<Label htmlFor="newPassword">Nouveau mot de passe</Label>
 						<Input
 							id="newPassword"
 							type="password"
 							{...register('newPassword')}
 						/>
 						{errors.newPassword && (
-							<p>{errors.newPassword.message?.toString()}</p>
+							<p className="text-red-500">
+								{errors.newPassword.message?.toString()}
+							</p>
 						)}
 					</div>
-					<Button type="submit">Save password</Button>
+					<Button type="submit">Enregistrer le mot de passe</Button>
 				</form>
 			</CardContent>
-			<CardFooter></CardFooter>
 		</Card>
 	)
 }

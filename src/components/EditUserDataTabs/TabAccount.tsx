@@ -18,8 +18,8 @@ import { z } from 'zod'
 import { Button } from '../ui/button/button'
 
 const accountSchema = z.object({
-	name: z.string().min(1, 'Name is required'),
-	email: z.string().email('Invalid email address'),
+	name: z.string().min(1, 'Le nom est obligatoire'),
+	email: z.string().email('Adresse e-mail invalide'),
 })
 
 type AccountSchema = z.infer<typeof accountSchema>
@@ -62,41 +62,50 @@ export const TabAccount = ({
 						isLoadingUser: false,
 					}),
 				)
-				toast.success('Account updated successfully')
+				toast.success('Compte mis à jour avec succès')
 				handleCloseModal()
 				return
 			}
 		} catch (error) {
 			console.error(error)
-			toast.error('Error updating the account')
+			toast.error('Erreur lors de la mise à jour du compte')
 		}
 	}
 
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>Account</CardTitle>
+				<CardTitle>Compte</CardTitle>
 				<CardDescription>
-					Make changes to your account here. Click save when you're done.
+					Modifiez votre compte ici. Cliquez sur enregistrer lorsque vous avez
+					terminé.
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-2">
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
 					<div className="space-y-1">
-						<Label htmlFor="name">Name</Label>
-						<Input id="name" placeholder="name example" {...register('name')} />
-						{errors.name && <p>{errors.name.message?.toString()}</p>}
+						<Label htmlFor="name">Nom</Label>
+						<Input
+							id="name"
+							placeholder="exemple de nom"
+							{...register('name')}
+						/>
+						{errors.name && (
+							<p className="text-red-500">{errors.name.message?.toString()}</p>
+						)}
 					</div>
 					<div className="space-y-1">
 						<Label htmlFor="email">Email</Label>
 						<Input
 							id="email"
-							placeholder="example@gmail.com"
+							placeholder="exemple@gmail.com"
 							{...register('email')}
 						/>
-						{errors.email && <p>{errors.email.message?.toString()}</p>}
+						{errors.email && (
+							<p className="text-red-500">{errors.email.message?.toString()}</p>
+						)}
 					</div>
-					<Button type="submit">Save changes</Button>
+					<Button type="submit">Enregistrer les modifications</Button>
 				</form>
 			</CardContent>
 		</Card>

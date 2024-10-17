@@ -74,9 +74,9 @@ export function FilterUsersByAdmin() {
 			onSubmit={handleSubmit(handleFilter)}
 			className="flex flex-wrap items-center gap-2"
 		>
-			<span className="text-sm font-semibold">Filtros:</span>
+			<span className="text-sm font-semibold">Filtres :</span>
 			<Input
-				placeholder="Nome do cliente"
+				placeholder="Nom du client"
 				className="h-8 w-[320px]"
 				{...register('customerName')}
 			/>
@@ -96,12 +96,11 @@ export function FilterUsersByAdmin() {
 								<SelectValue />
 							</SelectTrigger>
 							<SelectContent>
-								<SelectItem value="all">Todos Cargos</SelectItem>
-								<SelectItem value="run">Corrida</SelectItem>
-								<SelectItem value="Soccer">Futebol</SelectItem>
-								<SelectItem value="volleyball">Volei</SelectItem>
+								<SelectItem value="all">Tous les Statuts</SelectItem>
+								<SelectItem value="run">Course</SelectItem>
+								<SelectItem value="volleyball">Volleyball</SelectItem>
 								<SelectItem value="volleyballAthlete">
-									atleta de volei
+									Athlète de volleyball
 								</SelectItem>
 							</SelectContent>
 						</Select>
@@ -110,7 +109,7 @@ export function FilterUsersByAdmin() {
 			/>
 			<Button variant="secondary" size="xs" type="submit">
 				<Search className="mr-2 h-4 w-4" />
-				Filtrar resultados
+				Filtrer les résultats
 			</Button>
 			<Button
 				onClick={handleClearFilters}
@@ -119,7 +118,7 @@ export function FilterUsersByAdmin() {
 				type="button"
 			>
 				<X className="mr-2 h-4 w-4" />
-				Remover filtros
+				Retirer les filtres
 			</Button>
 		</form>
 	)

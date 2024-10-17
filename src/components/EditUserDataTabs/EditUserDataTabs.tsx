@@ -10,8 +10,8 @@ export function EditUserDataTabs({
 	return (
 		<Tabs defaultValue="account" className="w-full">
 			<TabsList className="grid w-full grid-cols-2">
-				<TabsTrigger value="account">Account</TabsTrigger>
-				<TabsTrigger value="password">Password</TabsTrigger>
+				<TabsTrigger value="account">Compte</TabsTrigger>
+				<TabsTrigger value="password">Mot de passe</TabsTrigger>
 			</TabsList>
 			<TabsContent value="account">
 				<TabAccount handleCloseModal={handleCloseModal} />

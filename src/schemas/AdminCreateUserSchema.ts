@@ -13,24 +13,26 @@ const roleDuplicated = (roles: { role: string }[]) => {
 }
 
 const roleSchema = z.array(
-	z.object({ role: z.string().min(1, 'Campo obrigatório') }),
+	z.object({ role: z.string().min(1, 'Champ obligatoire') }),
 )
 
 const baseSchema = z.object({
-	name: z.string().min(1, 'Nome é obrigatório'),
-	email: z.string().email('Formato de e-mail inválido'),
-	password: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres'),
-	retypePassword: z.string().min(6, 'Senhas devem coincidir'),
+	name: z.string().min(1, 'Le nom est obligatoire'),
+	email: z.string().email('Format de courriel invalide'),
+	password: z
+		.string()
+		.min(6, 'Le mot de passe doit comporter au moins 6 caractères'),
+	retypePassword: z.string().min(6, 'Les mots de passe doivent correspondre'),
 	roles: roleSchema,
 })
 
 const schema = baseSchema
 	.refine((data) => data.password === data.retypePassword, {
-		message: 'As senhas não coincidem',
+		message: 'Les mots de passe ne correspondent pas',
 		path: ['retypePassword'],
 	})
 	.refine((data) => data.roles.length > 0, {
-		message: 'Selecione ao menos um cargo',
+		message: 'Sélectionnez au moins un rôle',
 		path: ['roles'],
 	})
 	.refine(
@@ -39,7 +41,7 @@ const schema = baseSchema
 			return !hasDuplicates
 		},
 		{
-			message: 'Cargos duplicados',
+			message: 'Rôles en double',
 			path: ['roles'],
 		},
 	)

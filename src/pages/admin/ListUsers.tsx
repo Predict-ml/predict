@@ -28,7 +28,7 @@ export const ListUsers = () => {
 	const status = searchParams.get('status')
 	const customerName = searchParams.get('customerName')
 
-	useAppTitle({ title: 'Usuários' })
+	useAppTitle({ title: 'Utilisateurs' })
 
 	const appUsers = useAppSelector((state) => state.appUsers.users)
 	const dispatch = useDispatch()
@@ -44,15 +44,18 @@ export const ListUsers = () => {
 				})
 
 				if ('message' in users) {
-					console.error('Erro ao buscar usuários:', users.message)
-					toast.error('Erro ao buscar usuários')
+					console.error(
+						'Erreur lors de la récupération des utilisateurs:',
+						users.message,
+					)
+					toast.error('Erreur lors de la récupération des utilisateurs')
 					return
 				}
 
 				dispatch(startUsers(users))
 			} catch (error) {
-				console.error('Erro ao buscar usuários:', error)
-				toast.error('Erro ao buscar usuários')
+				console.error('Erreur lors de la récupération des utilisateurs:', error)
+				toast.error('Erreur lors de la récupération des utilisateurs')
 			}
 		}
 
@@ -61,7 +64,7 @@ export const ListUsers = () => {
 
 	return (
 		<>
-			<Helmet title="Usuarios" />
+			<Helmet title="Utilisateurs" />
 
 			<div className="space-y-6 mx-auto w-full p-4 max-w-5xl  ">
 				<CreateAccountModal />
@@ -71,11 +74,11 @@ export const ListUsers = () => {
 					<Table>
 						<TableHeader>
 							<TableRow>
-								<TableHead className="w-1/2 min-w-[150px]">Nome</TableHead>
+								<TableHead className="w-1/2 min-w-[150px]">Nom</TableHead>
 								<TableHead className="w-1/2 min-w-[150px]">Email</TableHead>
-								<TableHead className="min-w-[120px] ">Cargo</TableHead>
+								<TableHead className="min-w-[120px] ">Rôle</TableHead>
 
-								<TableHead className="w-[80px]">Editar</TableHead>
+								<TableHead className="w-[80px]">Modifier</TableHead>
 							</TableRow>
 						</TableHeader>
 						<TableBody>
@@ -92,7 +95,7 @@ export const ListUsers = () => {
 							{appUsers?.length === 0 && (
 								<TableRow>
 									<TableCell colSpan={4} className="text-center">
-										Nenhum usuário encontrado
+										Aucun utilisateur trouvé
 									</TableCell>
 								</TableRow>
 							)}

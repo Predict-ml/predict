@@ -29,7 +29,7 @@ export const DropDownUserSettings = () => {
 				<ModalEditUser />
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
-					<Link to="/logout">Logout</Link>
+					<Link to="/logout">Déconnexion</Link>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
