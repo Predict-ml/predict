@@ -40,12 +40,20 @@ export const Run = () => {
 		setLoading(true)
 		//TODO: use predict tipe to change endpoint
 
+		console.log(formData)
+
 		api
-			.post('/predict/run/treadmill', formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
+			.post(
+				'/predict/run/treadmill',
+				{
+					...formData,
 				},
-			})
+				{
+					headers: {
+						'Content-Type': 'multipart/form-data',
+					},
+				},
+			)
 			.then((response) => {
 				const data = response.data
 
