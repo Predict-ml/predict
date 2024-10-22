@@ -32,6 +32,7 @@ api.interceptors.response.use(
 		if (error?.response?.status === 403 || error?.response?.status === 401) {
 			if (error.response.data.error === 'Unauthorized') {
 				localStorage.removeItem(APP_KEY)
+				window.location.reload()
 			}
 		}
 		if (error) throw error

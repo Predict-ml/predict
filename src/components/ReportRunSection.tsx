@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils'
-
 import { predictData } from '@/store/slices/predictRunSlice'
 import { ReactNode, useEffect, useRef } from 'react'
 import { CustomPlot } from './CustomPlot'
@@ -16,31 +15,33 @@ const Title = ({ children, className }: TitleProps) => {
 		</h2>
 	)
 }
+
 type ReportProps = predictData
 
 export const ReportRunSection = ({ outputFileUrl, predict }: ReportProps) => {
 	const {
 		nome = 'Nom du Fichier',
-		right_knee_angle_mean = 0,
-		right_knee_angle_min = 0,
-		right_knee_angle_max = 0,
-		left_knee_angle_mean = 0,
-		left_knee_angle_min = 0,
-		left_knee_angle_max = 0,
-		velocity_mean = 0,
-		velocity_max = 0,
-		asymmetry_mean = 0,
-		asymmetry_max = 0,
-		asymmetry_json,
-		hip_movement_json,
-		knee_angle_json,
-		velocity_json,
+		rightKneeAngleMean = 0,
+		rightKneeAngleMin = 0,
+		rightKneeAngleMax = 0,
+		leftKneeAngleMean = 0,
+		leftKneeAngleMin = 0,
+		leftKneeAngleMax = 0,
+		velocityMean = 0,
+		velocityMax = 0,
+		asymmetryMean = 0,
+		asymmetryMax = 0,
+		asymmetryJson,
+		hipMovementJson,
+		kneeAngleJson,
+		velocityJson,
 	} = predict
 
-	const asymetryJsonParsed = JSON.parse(asymmetry_json)
-	const hipmovementJsonParsed = JSON.parse(hip_movement_json)
-	const kneeJsonParsed = JSON.parse(knee_angle_json)
-	const velJsonParsed = JSON.parse(velocity_json)
+	// Corrigido para usar as variáveis em camelCase
+	const asymmetryJsonParsed = JSON.parse(asymmetryJson)
+	const hipMovementJsonParsed = JSON.parse(hipMovementJson)
+	const kneeJsonParsed = JSON.parse(kneeAngleJson)
+	const velocityJsonParsed = JSON.parse(velocityJson)
 
 	const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -54,10 +55,9 @@ export const ReportRunSection = ({ outputFileUrl, predict }: ReportProps) => {
 		<section
 			id="report-section"
 			ref={sectionRef}
-			className="w-full  mx-auto bg-white max-w-6xl flex flex-col items-center
-		"
+			className="w-full mx-auto bg-white max-w-6xl flex flex-col items-center"
 		>
-			<div className="p-8 ">
+			<div className="p-8">
 				<Title className="text-center mb-8 text-3xl">
 					Analyse Cinématique de la Marche - {nome}
 				</Title>
@@ -84,17 +84,17 @@ export const ReportRunSection = ({ outputFileUrl, predict }: ReportProps) => {
 					<div className="mb-4">
 						<strong className="block mb-2">Angle du Genou Droit</strong>
 						<ul className="list-disc ml-5 text-lg text-gray-600">
-							<li>Angle Minimum: {right_knee_angle_min.toFixed(2)} degrés</li>
-							<li>Angle Moyen: {right_knee_angle_mean.toFixed(2)} degrés</li>
-							<li>Angle Maximum: {right_knee_angle_max.toFixed(2)} degrés</li>
+							<li>Angle Minimum: {rightKneeAngleMin.toFixed(2)} degrés</li>
+							<li>Angle Moyen: {rightKneeAngleMean.toFixed(2)} degrés</li>
+							<li>Angle Maximum: {rightKneeAngleMax.toFixed(2)} degrés</li>
 						</ul>
 					</div>
 					<div>
 						<strong className="block mb-2">Angle du Genou Gauche</strong>
 						<ul className="list-disc ml-5 text-lg text-gray-600">
-							<li>Angle Minimum: {left_knee_angle_min.toFixed(2)} degrés</li>
-							<li>Angle Moyen: {left_knee_angle_mean.toFixed(2)} degrés</li>
-							<li>Angle Maximum: {left_knee_angle_max.toFixed(2)} degrés</li>
+							<li>Angle Minimum: {leftKneeAngleMin.toFixed(2)} degrés</li>
+							<li>Angle Moyen: {leftKneeAngleMean.toFixed(2)} degrés</li>
+							<li>Angle Maximum: {leftKneeAngleMax.toFixed(2)} degrés</li>
 						</ul>
 					</div>
 				</div>
@@ -102,16 +102,16 @@ export const ReportRunSection = ({ outputFileUrl, predict }: ReportProps) => {
 				<div className="mb-6">
 					<Title>Déplacement et Vitesse des Segments Corporels</Title>
 					<ul className="list-disc ml-5 text-lg text-gray-600">
-						<li>Vitesse Moyenne: {velocity_mean.toFixed(2)} unités/s</li>
-						<li>Vitesse Maximale: {velocity_max.toFixed(2)} unités/s</li>
+						<li>Vitesse Moyenne: {velocityMean.toFixed(2)} unités/s</li>
+						<li>Vitesse Maximale: {velocityMax.toFixed(2)} unités/s</li>
 					</ul>
 				</div>
 
 				<div className="mb-6">
 					<Title>Symétrie du Mouvement de la Hanche</Title>
 					<ul className="list-disc ml-5 text-lg text-gray-600">
-						<li>Asymétrie Moyenne: {asymmetry_mean.toFixed(2)} unités</li>
-						<li>Asymétrie Maximale: {asymmetry_max.toFixed(2)} unités</li>
+						<li>Asymétrie Moyenne: {asymmetryMean.toFixed(2)} unités</li>
+						<li>Asymétrie Maximale: {asymmetryMax.toFixed(2)} unités</li>
 					</ul>
 				</div>
 
@@ -120,39 +120,42 @@ export const ReportRunSection = ({ outputFileUrl, predict }: ReportProps) => {
 					<ul className="list-disc ml-5 text-lg text-gray-600">
 						<li>
 							L'analyse des angles articulaires indique que le genou droit a une
-							moyenne de {right_knee_angle_mean.toFixed(2)} degrés et le genou
-							gauche a une moyenne de {left_knee_angle_mean.toFixed(2)} degrés.
+							moyenne de {rightKneeAngleMean.toFixed(2)} degrés et le genou
+							gauche a une moyenne de {leftKneeAngleMean.toFixed(2)} degrés.
 						</li>
 						<li>
 							La vitesse des segments corporels montre une moyenne de{' '}
-							{velocity_mean.toFixed(2)} unités/s, avec un pic de{' '}
-							{velocity_max.toFixed(2)} unités/s.
+							{velocityMean.toFixed(2)} unités/s, avec un pic de{' '}
+							{velocityMax.toFixed(2)} unités/s.
 						</li>
 						<li>
 							La symétrie du mouvement de la hanche est généralement bonne, avec
-							une moyenne d'asymétrie de {asymmetry_mean.toFixed(2)} unités.
+							une moyenne d'asymétrie de {asymmetryMean.toFixed(2)} unités.
 						</li>
 					</ul>
 				</div>
 			</div>
-			<div className="mb-6 w-96 sm:w-[80%] md:w-full overflow-x-auto ">
+			<div className="mb-6  md:w-full overflow-x-auto">
 				<CustomPlot
-					data={asymetryJsonParsed.data}
-					layout={asymetryJsonParsed.layout}
+					data={asymmetryJsonParsed.data}
+					layout={asymmetryJsonParsed.layout}
 				/>
 			</div>
-			<div className="mb-6 w-full sm:w-[80%] md:w-full overflow-x-auto">
+			<div className="mb-6  md:w-full overflow-x-auto">
 				<CustomPlot
-					data={hipmovementJsonParsed.data}
-					layout={hipmovementJsonParsed.layout}
+					data={hipMovementJsonParsed.data}
+					layout={hipMovementJsonParsed.layout}
 				/>
 			</div>
 
-			<div className="mb-6 w-96 sm:w-[80%] md:w-full overflow-x-auto">
+			<div className="mb-6  md:w-full overflow-x-auto">
 				<CustomPlot data={kneeJsonParsed.data} layout={kneeJsonParsed.layout} />
 			</div>
-			<div className="mb-6 w-96 sm:w-[80%] md:w-full overflow-x-auto">
-				<CustomPlot data={velJsonParsed.data} layout={velJsonParsed.layout} />
+			<div className="mb-6  md:w-full overflow-x-auto">
+				<CustomPlot
+					data={velocityJsonParsed.data}
+					layout={velocityJsonParsed.layout}
+				/>
 			</div>
 		</section>
 	)

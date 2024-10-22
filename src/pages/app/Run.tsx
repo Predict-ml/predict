@@ -29,10 +29,13 @@ export const Run = () => {
 	const dispatch = useDispatch()
 
 	const onSubmit = async (data: FormType, reset: () => void) => {
-		let formData = new FormData()
+		const { predictType: _, athleteID, file, newGuestAthlete } = data
 
-		formData.append('file', data.file)
-		formData.append('predictType', data.predictType)
+		const formData = {
+			file,
+			athleteID,
+			newGuestAthlete,
+		}
 
 		setLoading(true)
 		//TODO: use predict tipe to change endpoint

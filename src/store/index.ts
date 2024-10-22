@@ -6,7 +6,9 @@ import appUsersSlice from './slices/appUsersSlice'
 import athletesSlice from './slices/athletesSlice'
 import counterSlice from './slices/counterSlice'
 import predictRunSlice from './slices/predictRunSlice'
+import storedAnalysesSlice from './slices/storedAnalisesSlice'
 import user from './slices/userSlice'
+import volleyballPredict from './slices/volleyballPredictSlice'
 
 export const store = configureStore({
 	reducer: {
@@ -16,6 +18,8 @@ export const store = configureStore({
 		user,
 		appUsers: appUsersSlice,
 		athletes: athletesSlice,
+		storedAnalyses: storedAnalysesSlice,
+		volleyballPredict,
 	},
 })
 

@@ -20,8 +20,6 @@ export const AthleteFormSubmitService = async (
 	try {
 		const response = await api.post('/submit-athlete-form', data)
 
-		console.log(response, 'response', response.status, 'response.status')
-
 		if (response.status === 204) {
 			return {
 				success: true,

@@ -8,8 +8,8 @@ import { useAuthStorage } from '@/hooks/useAuthStorage'
 import { BrainCircuit, Menu } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { NavLink } from './NavLink'
-import { Button } from './ui/button/button'
+import { NavLink } from '../../components/NavLink'
+import { Button } from '../../components/ui/button/button'
 
 export const SheetAppMobile = () => {
 	const [isOpened, setIsOpened] = useState(false)
@@ -55,6 +55,12 @@ export const SheetAppMobile = () => {
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/volleyball/management">
 							Volleyball Management
+						</NavLink>,
+						'volleyball',
+					)}
+					{renderIfRouteIsAvailable(
+						<NavLink onClick={handleChangeOpen} to="/predictions-results">
+							Volleyball Predictions Results
 						</NavLink>,
 						'volleyball',
 					)}

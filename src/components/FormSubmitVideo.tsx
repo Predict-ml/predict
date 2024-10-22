@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { ComboboxSelectAthletToPredict } from './ComboboxSelectAthletToPredict'
 import { Label } from './ui/label'
 
 const MAX_FILE_SIZE = 100 * 1024 * 1024
@@ -23,6 +24,8 @@ const schema = z.object({
 			return ACCEPTED_IMAGE_TYPES.includes(file?.type)
 		}, 'Seuls les formats .mp4 sont pris en charge.'),
 	predictType: z.string().min(1, 'Champ obligatoire'),
+	athleteID: z.number().optional(),
+	newGuestAthlete: z.string().optional(),
 })
 
 export type FormType = z.infer<typeof schema>
@@ -79,6 +82,8 @@ export const FormSubmitVideo = ({
 						</span>
 					)}
 				</div>
+
+				<ComboboxSelectAthletToPredict />
 
 				<Button
 					type="submit"

@@ -1,17 +1,18 @@
 import {
 	Activity,
+	AreaChart,
 	FolderKanban,
 	MessageCircleQuestion,
 	ShieldMinus,
 	Triangle,
 } from 'lucide-react'
-import VolleyBall from './../assets/icons/VolleyBall'
+import VolleyBall from '../../assets/icons/VolleyBall'
 
 import { Button } from '@/components/ui/button/button'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 import { useAuthStorage } from '@/hooks/useAuthStorage'
-import { CustomToolTip } from './CustomToolTip'
+import { CustomToolTip } from '../../components/CustomToolTip'
 
 export const AppAside = () => {
 	const { renderIfRouteIsAvailable } = useAuthStorage()
@@ -46,6 +47,14 @@ export const AppAside = () => {
 								to="/volleyball/management"
 								icon={<FolderKanban className="size-5" />}
 								label="Volleyball Management"
+							/>,
+							'volleyball',
+						)}
+						{renderIfRouteIsAvailable(
+							<CustomToolTip
+								to="/predictions-results"
+								icon={<AreaChart className="size-5" />}
+								label="Volleyball Predictions Results"
 							/>,
 							'volleyball',
 						)}

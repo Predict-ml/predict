@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
 
-import { AdminAside } from '@/components/AdminAside'
 import { Header } from '@/components/Header'
-import { SheetAdminMobile } from '@/components/SheetAdminMobile'
+import { AdminAside } from '@/layouts/AdminLayout/AdminAside'
+import { SheetAdminMobile } from '@/layouts/AdminLayout/SheetAdminMobile'
 
 import { DropDownUserSettings } from '@/components/DropDownUserSettings'
 import { useAppSelector } from '@/store'

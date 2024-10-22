@@ -6,7 +6,7 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-	useLoadUser('UserProvider')
+	useLoadUser()
 
 	return <>{children}</>
 }

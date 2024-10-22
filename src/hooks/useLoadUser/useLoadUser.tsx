@@ -7,7 +7,7 @@ import { useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { APP_KEY } from '../useAuthStorage'
 
-export const useLoadUser = (s: string) => {
+export const useLoadUser = () => {
 	const dispatch = useDispatch<AppDispatch>()
 	const user = useAppSelector((state) => state.user)
 
@@ -35,8 +35,6 @@ export const useLoadUser = (s: string) => {
 			user.roles.length === 0
 
 		if (isUserDefault) {
-			console.log(s)
-
 			fetchUser()
 		}
 	}, [])

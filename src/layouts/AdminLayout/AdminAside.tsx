@@ -3,7 +3,7 @@ import { BrainCircuit, Triangle } from 'lucide-react'
 import { Button } from '@/components/ui/button/button'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
-import { CustomToolTip } from './CustomToolTip'
+import { CustomToolTip } from '../../components/CustomToolTip'
 
 export const AdminAside = () => {
 	return (

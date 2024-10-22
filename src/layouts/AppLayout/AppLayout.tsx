@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
 
-import { AppAside } from '@/components/AppAside'
 import { Header } from '@/components/Header'
-import { SheetAppMobile } from '@/components/SheetAppMobile'
+import { AppAside } from '@/layouts/AppLayout/AppAside'
+import { SheetAppMobile } from '@/layouts/AppLayout/SheetAppMobile'
 
 import { DropDownUserSettings } from '@/components/DropDownUserSettings'
 import { useAppSelector } from '@/store'
@@ -14,7 +14,7 @@ export function AppLayout() {
 		<div className="flex flex-col md:grid h-full min-h-screen w-full md:grid-cols-[min-content_1fr] md:items-start">
 			<AppAside />
 
-			<div className="flex flex-col w-full h-full">
+			<div className="grid grid-rows-[min-content_1fr] min-h-full">
 				<Header>
 					<SheetAppMobile />
 					<h1 className="text-xl font-semibold capitalize">{titleHeader}</h1>
