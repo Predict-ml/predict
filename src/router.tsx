@@ -1,7 +1,6 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { AppLayout, AuthLayout } from './layouts/@index'
-import { AdminLayout } from './layouts/AdminLayout/AdminLayout'
 import { UserProvider } from './layouts/UserProvider'
 import { ListUsers } from './pages/admin/ListUsers'
 import { NotFound } from './pages/app/404'
@@ -112,14 +111,8 @@ export const router = createBrowserRouter([
 						path: 'logout',
 						element: <LogOut />,
 					},
-				],
-			},
-			{
-				path: 'admin',
-				element: <AdminLayout />,
-				children: [
 					{
-						path: '',
+						path: 'admin',
 						element: (
 							<ProtectedRoute requiredRoles={[Roles.ADMIN]}>
 								<ListUsers />
