@@ -17,7 +17,7 @@ const PREDICTOPTIONS = [
 ]
 
 export const Run = () => {
-	useAppTitle({ title: 'Corrida' })
+	useAppTitle({ title: 'Course' })
 
 	const outputFileUrl = useAppSelector(
 		(state) => state.predictRunSlice.outputFileUrl,

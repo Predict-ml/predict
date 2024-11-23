@@ -25,11 +25,11 @@ export const SheetAppMobile = () => {
 			<SheetTrigger asChild>
 				<Button variant="outline" size="icon" className="shrink-0 md:hidden">
 					<Menu className="h-5 w-5" />
-					<span className="sr-only">Toggle navigation menu</span>
+					<span className="sr-only">Basculer le menu de navigation</span>
 				</Button>
 			</SheetTrigger>
 			<SheetTitle hidden className="sr-only">
-				Toggle navigation menu
+				Basculer le menu de navigation
 			</SheetTitle>
 			<SheetContent side="left" aria-describedby={undefined}>
 				<nav className="grid gap-6 text-lg font-medium">
@@ -38,42 +38,42 @@ export const SheetAppMobile = () => {
 						className="flex items-center gap-2 text-lg font-semibold"
 					>
 						<BrainCircuit className="h-6 w-6" />
-						<span className="sr-only">Predict Home</span>
+						<span className="sr-only">Accueil Predict</span>
 					</Link>
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/run">
-							Run
+							Course
 						</NavLink>,
 						'run',
 					)}
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/volleyball">
-							Volleyball
+							Volley-ball
 						</NavLink>,
 						'volleyball',
 					)}
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/volleyball/management">
-							Volleyball Management
+							Gestion du volley-ball
 						</NavLink>,
 						'volleyball',
 					)}
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/predictions-results">
-							Volleyball Predictions Results
+							Résultats des prédictions de volley-ball
 						</NavLink>,
 						'volleyball',
 					)}
 
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/questions">
-							Daily Questions
+							Questions quotidiennes
 						</NavLink>,
 						'volleyballAthlete',
 					)}
 					{renderIfRouteIsAvailable(
 						<NavLink onClick={handleChangeOpen} to="/admin">
-							Admin
+							Administrateur
 						</NavLink>,
 						'admin',
 					)}

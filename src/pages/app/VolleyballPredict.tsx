@@ -18,7 +18,7 @@ import { toast } from 'sonner'
 const PREDICTOPTIONS = ['block']
 
 export const VolleyballPredict = () => {
-	useAppTitle({ title: 'VolleyBall Predict' })
+	useAppTitle({ title: 'Prédiction Volley-ball' })
 
 	const dispatch = useDispatch()
 	const loading = useAppSelector((state) => state.volleyballPredict.loading)

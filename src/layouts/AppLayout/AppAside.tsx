@@ -21,7 +21,7 @@ export const AppAside = () => {
 			<aside className=" hidden md:flex h-full flex-col border-r">
 				<div className="sticky top-0">
 					<div className="border-b p-2 min-h-[56.8px] max-h-[56.8px]">
-						<Button variant="outline" size="icon" aria-label="Home">
+						<Button variant="outline" size="icon" aria-label="Accueil">
 							<Triangle className="size-5 fill-foreground" />
 						</Button>
 					</div>
@@ -30,7 +30,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/run"
 								icon={<Activity className="size-5" />}
-								label="Run"
+								label="Course"
 							/>,
 							'run',
 						)}
@@ -38,7 +38,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/volleyball"
 								icon={<VolleyBall className="size-5" />}
-								label="Volleyball"
+								label="Volley-ball"
 							/>,
 							'volleyball',
 						)}
@@ -46,7 +46,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/volleyball/management"
 								icon={<FolderKanban className="size-5" />}
-								label="Volleyball Management"
+								label="Gestion du volley-ball"
 							/>,
 							'volleyball',
 						)}
@@ -54,7 +54,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/predictions-results"
 								icon={<AreaChart className="size-5" />}
-								label="Volleyball Predictions Results"
+								label="Résultats des prédictions de volley-ball"
 							/>,
 							'volleyball',
 						)}
@@ -62,7 +62,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/questions"
 								icon={<MessageCircleQuestion className="size-5" />}
-								label="Daily Questions"
+								label="Questions quotidiennes"
 							/>,
 							'volleyballAthlete',
 						)}
@@ -70,7 +70,7 @@ export const AppAside = () => {
 							<CustomToolTip
 								to="/admin"
 								icon={<ShieldMinus className="size-5" />}
-								label="Admin"
+								label="Administrateur"
 							/>,
 							'admin',
 						)}
